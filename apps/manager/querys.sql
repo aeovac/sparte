@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS subs (
+    ID PRIMARY KEY NOT NULL,
+    duration TEXT,
+    userId BIGINT NOT NULL
+)

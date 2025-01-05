@@ -1,0 +1,1 @@
+export const GUILD_ID = '' as const;
