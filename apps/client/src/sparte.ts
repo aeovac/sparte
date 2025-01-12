@@ -1,5 +1,5 @@
-import * as Discord from '@sparte/discordeno';
-import { createBot } from '@sparte/discordeno';
+import * as Discord from 'discordeno';
+import { createBot } from 'discordeno';
 import { messageCreate } from './listeners/messageCreate';
 import type { CommandStructure } from './typings';
 
