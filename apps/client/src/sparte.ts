@@ -1,14 +1,26 @@
 import * as Discord from '@sparte/discordeno';
 import { createBot } from '@sparte/discordeno';
 import { messageCreate } from './listeners/messageCreate';
-import type { Command } from './typings';
+import type { CommandStructure } from './typings';
 
+export type Sparte = ReturnType<typeof Sparte>;
 export function Sparte(token: string) {
+
     const bot = createBot({
-        token: '',
+        token,
         desiredProperties: {
             message: {
-                content: true
+                channelId: true,
+                member: true,
+                id: true,
+                content: true,
+                mentions: true
+            },
+            guild: {
+                members: true
+            },
+            member: {
+                permissions: true,
             }
         },
         events: {
@@ -18,23 +30,22 @@ export function Sparte(token: string) {
         }
     });
 
-    const commands: Set<Command.Raw> = new Set();
+    const commands: Set<CommandStructure> = new Set();
     const sparte = {
         ...bot,
         commands,
         getCommands,
         command
     }
-    function command(cmd: Command.Structure) {
-        function parse(cmd: Command.Structure): Command.Raw {
-            return {}
-        }
+    
+    function command(cmd: CommandStructure) {
+        //
 
-        commands.add(parse(cmd));
+        commands.add(cmd);
     }
 
-    function getCommands(): Command.Structure[] {
-        return [] as any;
+    function getCommands(): CommandStructure[] {
+        return Array.from(commands);
     }   
 
 

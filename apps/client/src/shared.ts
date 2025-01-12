@@ -1,7 +1,4 @@
-import { sparte } from ".";
+import { sparte } from "./index";
 
-// C'est hideux mais ça fera l'affaire
-
-export type Sparte = typeof sparte
-export const types = sparte['transformers']['$inferredTypes'];
+export type Sparte = typeof sparte;
 export const command = sparte.command.bind(this);

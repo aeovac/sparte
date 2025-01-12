@@ -1,0 +1,35 @@
+custom <name>
+custom delete <name/ID>
+customs
+    custom list
+clear customs
+    custom clear
+
+allow user <userID> (pour autoriser un utilisateur d'utiliser tes commandes)
+clear users
+
+prefix <nouveau prefix>
+prefix list?
+
+
+rpc <platform: xbox, spotify, ps5, ...> <name> <save: true/false>
+
+copy
+create backup [guildID]
+    backup delete
+    bcreate
+delete backup <name/ID>
+    backup delete
+    bdelete
+load backup <name/ID>
+    backup load
+    bload
+backups
+    backup list
+    list backup
+    blist
+backup info <name/ID>
+    info backup
+    binfo
+
+raw emojis <guildID>
