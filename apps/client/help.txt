@@ -1,18 +1,17 @@
-custom <name>
-custom delete <name/ID>
-customs
-    custom list
+customs <name> <text>
+customs delete <name/ID>
+customs list
 clear customs
-    custom clear
 
-allow user <userID> (pour autoriser un utilisateur d'utiliser tes commandes)
-clear users
+allow add/remove <user> (pour autoriser un utilisateur d'utiliser tes commandes
+clear allowed
 
-prefix <nouveau prefix>
+prefix add/remove <préfixe>
 prefix list?
+clear prefix
 
 
-rpc <platform: xbox, spotify, ps5, ...> <name> <save: true/false>
+rpc <platform, type, name, details, ...> <newValue>
 
 copy
 create backup [guildID]
