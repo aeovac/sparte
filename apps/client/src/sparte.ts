@@ -52,5 +52,6 @@ export async function Sparte(token: string) {
         getCommands,
     };
 
+    await sparte.start();
     return sparte;
 }
