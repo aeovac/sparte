@@ -2,7 +2,7 @@ import type { Message } from "../typings";
 import type { Sparte } from "../shared";
 
 export async function messageCreate(sparte: Sparte, message: Message) {
-    if(!message.content?.startsWith('!')) {
+    if(!message.content.startsWith('!')) {
         return;
     }
 
@@ -13,13 +13,21 @@ export async function messageCreate(sparte: Sparte, message: Message) {
 
     const command = sparte
         .getCommands()
-        .find(({ name }) => (args.join(' ').startsWith(name)));
+        .find(({ name, aliases }) => {
+            const z = args.join(' ');
+            return z.startsWith(name) || aliases.find((aliase) => (
+                z.startsWith(aliase)
+            ))
+        });
+    
+    if(command) {
+        args.shift();
 
-    if(!command) return;
+        await command.callback(
+            sparte,
+            message, 
+            args
+        );
+    }
 
-    await command.callback(
-        sparte,
-        message, 
-        args
-    );
 };

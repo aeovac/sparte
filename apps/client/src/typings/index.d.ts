@@ -4,8 +4,9 @@ import type { Sparte } from "../sparte";
 
 export type Message = Sparte['transformers']['$inferredTypes']['message'];
 
-interface CommandStructure<C extends Discord.Bot = Discord.Bot> {
+interface CommandStructure {
     name: string;
     description: string;
+    aliases: Array<string>;
     callback(sparte: Sparte, message: Message, args: string[]): unknown;
 }
