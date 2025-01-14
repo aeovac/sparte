@@ -11,22 +11,16 @@ export async function messageCreate(sparte: Sparte, message: Message) {
         .trim()
         .split(/\s+/g);
 
+    const text = args.join(' ');
     const command = sparte
         .getCommands()
-        .find(({ name, aliases }) => {
-            const z = args.join(' ');
-            return z.startsWith(name) || aliases.find((aliase) => (
-                z.startsWith(aliase)
-            ))
-        });
+        .find(({ name, aliases }) => (text.startsWith(name) || aliases.find((aliase) => (text.startsWith(aliase)))));
     
     if(command) {
-        args.shift();
-
         await command.callback(
             sparte,
             message, 
-            args
+            args.slice(2)
         );
     }
 

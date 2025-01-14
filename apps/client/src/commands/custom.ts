@@ -2,20 +2,34 @@ import { database, parseVars } from "../shared";
 import type { CommandStructure } from "../typings";
 
 const custom_command = ({
-    name: 'custom',
+    name: 'custom create',
     description: 'Set the prefix',
-    aliases: ['custom create'],
+    aliases: [],
     callback(sparte, message, [name]) {
-        if(sparte.getCommands().find((command) => (command.name.startsWith(name)))) {
+        console.log(name)
+        const cmd = sparte
+            .getCommands()
+            .find((command) => (
+                command.name.startsWith(name) || command.aliases.find((aliase) => (
+                    aliase.startsWith(name)
+                ))
+            ));
+
+        if(!!cmd) {
+            return console.log('Exists')
             return sparte.rest.editMessage(message.channelId, message.id, { content: '' }).then(() => {
                 setTimeout(sparte.rest.deleteMessage, 4000);
             });
         }
 
+        /*
+
+
         const response = parseVars(message.content);
         database
             .query('INSERT INTO cc (userId, name, response) VALUES (?, ?, ?);')
             .run(sparte.id, name, response);
+            */
     }
 }) as CommandStructure;
 

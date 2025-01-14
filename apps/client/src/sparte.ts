@@ -22,7 +22,7 @@ export async function Sparte(token: string) {
             },
             member: {
                 permissions: true,
-            }
+            },
         },
         events: {
             messageCreate(message) {
@@ -31,8 +31,8 @@ export async function Sparte(token: string) {
         }
     });
 
-    const commands: Set<CommandStructure> = new Set();
     
+    const commands: Set<CommandStructure> = new Set();
     const glob = new Glob('*.{ts,tsx}');
     for await (const file of glob.scan({ cwd: `${import.meta.dir}/commands` })) {
         const i = await import(`${import.meta.dir}/commands/${file}`);
@@ -52,6 +52,5 @@ export async function Sparte(token: string) {
         getCommands,
     };
 
-    await sparte.start();
     return sparte;
 }
