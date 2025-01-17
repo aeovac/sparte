@@ -6,7 +6,6 @@ const custom_command = ({
     description: 'Set the prefix',
     aliases: [],
     callback(sparte, message, [name]) {
-        console.log(name)
         const cmd = sparte
             .getCommands()
             .find((command) => (
@@ -16,7 +15,6 @@ const custom_command = ({
             ));
 
         if(!!cmd) {
-            return console.log('Exists')
             return sparte.rest.editMessage(message.channelId, message.id, { content: '' }).then(() => {
                 setTimeout(sparte.rest.deleteMessage, 4000);
             });
@@ -51,4 +49,4 @@ const custom_delete_command = ({
 }) as CommandStructure;
 
 
-export default [custom_command,  custom_delete_command] as CommandStructure[];
+export default [custom_command,  custom_delete_command] as Array<CommandStructure>;

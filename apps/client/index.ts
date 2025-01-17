@@ -1,7 +1,7 @@
 import { Sparte } from "./src/sparte";
 
-
-const sparte = await Sparte('MTMyNDQ4MzQ5NzMxMzgyODg3NQ.GoHdSU.t6Onw87uBptgdfXww5J5K6gFJeVFEvSvFbItF4');
+// MTI3MTk0NDg2NjIwNDQ4MzY4OQ.G0foLo.Ij7oqAs1cJ-mFjwzwkhtwNlkkiEAvDGnyi5zSk
+const sparte = await Sparte('MTI3MTk0NDg2NjIwNDQ4MzY4OQ.G0foLo.Ij7oqAs1cJ-mFjwzwkhtwNlkkiEAvDGnyi5zSk');
 sparte.start();
 
 console.log(sparte.getCommands())

@@ -14,13 +14,15 @@ export async function messageCreate(sparte: Sparte, message: Message) {
     const text = args.join(' ');
     const command = sparte
         .getCommands()
-        .find(({ name, aliases }) => (text.startsWith(name) || aliases.find((aliase) => (text.startsWith(aliase)))));
+        .find(({ name, aliases }) => (
+            text.startsWith(name) || aliases.some((alias) => text.startsWith(alias))
+        ));
     
     if(command) {
         await command.callback(
             sparte,
             message, 
-            args.slice(2)
+            args.slice(command.name.split(' ').length)
         );
     }
 

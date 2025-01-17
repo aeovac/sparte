@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@sparte/discordeno": ["./packages/discordeno/packages/"]
+      "@sparte/discordeno": ["./packages/discordeno/packages/discordeno/src/index"]
     },
     // Enable latest features
     "lib": ["ESNext", "DOM"],
