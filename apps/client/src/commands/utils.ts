@@ -19,7 +19,16 @@ const password_command = ({
     }
 }) as CommandStructure;
  
+const encode_command = ({
+    name: 'encode',
+    description: '',
+    aliases: [],
+    async callback(sparte, message, args) {
+
+    }
+}) as CommandStructure;
+
 
 export default [
-
+    encode_command
 ] as Array<CommandStructure>;

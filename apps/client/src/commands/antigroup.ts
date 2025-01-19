@@ -10,6 +10,8 @@ antigroup whitelist <add/remove> <user>
 antigroup whitelist clear
 antigroup whitelist file
 */
+
+
 import { args_map, database } from "../shared";
 import type { CommandStructure } from "../typings";
 

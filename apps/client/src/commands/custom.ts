@@ -2,7 +2,7 @@ import { database, parseVars } from "../shared";
 import type { CommandStructure } from "../typings";
 
 const custom_command = ({
-    name: 'custom create',
+    name: 'custom',
     description: 'Set the prefix',
     aliases: [],
     callback(sparte, message, [name]) {
@@ -15,7 +15,7 @@ const custom_command = ({
             ));
 
         if(!!cmd) {
-            return sparte.rest.editMessage(message.channelId, message.id, { content: '' }).then(() => {
+            return sparte.rest.editMessage(message.channelId, message.id, { content: 'Already exists' }).then(() => {
                 setTimeout(sparte.rest.deleteMessage, 4000);
             });
         }

@@ -19,7 +19,22 @@ export async function Sparte(token: string) {
                 mentions: true,
             },
             guild: {
-                members: true
+                id: true,
+                name: true,
+                icon: true,
+                members: true,
+                channels: true,
+                roles: true
+            },
+            role: {
+                name: true,
+                color: true,
+                permissions: true
+            },
+            channel: {
+                name: true,
+                parentId: true,
+                type: true
             },
             user: {
                 id: true,
@@ -34,7 +49,6 @@ export async function Sparte(token: string) {
                 console.log(user.globalName)
             },
             messageCreate(message) {
-                console.log('e', message.mentionedUserIds)
                 messageCreate(sparte, message);
             }
         }
